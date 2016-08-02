@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- PROPERTIES -->
+    <property name="layout"
+        value="%d{HH:mm:ss.SSS} %-5level [%thread][%logger{0}] %m%n" />
+    <property name="logFile" value="jms-activemq-priority-test.log" />
+
+    <!-- LOGBACK APPENDERS -->
+    <appender name="LOG_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${layout}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logFile}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logFile}.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${layout}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.codenotfound.jms.priority" level="INFO" />
+
+    <!-- LOG LEVEL -->
+    <root level="WARN">
+        <appender-ref ref="LOG_STDOUT" />
+        <appender-ref ref="LOG_FILE" />
+    </root>
+
+</configuration>
