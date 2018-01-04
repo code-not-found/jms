@@ -8,8 +8,7 @@
 
     <File>${logFile}</File>
 
-    <rollingPolicy
-      class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <fileNamePattern>${logFile}.%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>30</maxHistory>
     </rollingPolicy>
